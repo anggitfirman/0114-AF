@@ -1,0 +1,68 @@
+#using if-else statements
+
+x = 10
+
+if x % 2 == 0:
+  print("x =", x, "is even")
+else:
+  print("x =", x, "is odd")
+
+if x > 0:
+  print("x =", x, "is positive")
+elif x < 0:
+  print("x =", x, "is negative")
+else:
+  print("x =", x, "is neither positive nor negative")
+
+  #using for loop with a list
+
+mylist = ['this', 'is', 'a', 'list']
+for word in mylist:
+  print(word.replace("is", "at"))
+
+mylist2 = [len(word) for word in mylist] #number of characters in each word
+print(mylist2)
+
+#using for loop with list of touples
+
+states = [('MI', 'Michigan', 'Lansing'), ('CA', 'California', ' Sacramento'), ('TX', 'Texas', 'Austin')]
+sorted_capitals = [state[2] for state in states]
+sorted_capitals.sort()
+print(sorted_capitals)
+
+#using for loop with dictionary
+
+fruits = {'apples': 3, 'oranges': 4, 'bananas': 2, 'charries': 10}
+fruitnames = [k for (k,v) in fruits.items()]
+print(fruitnames)
+
+#using while loop 
+
+mylist = list(range(-10,10))
+print(mylist)
+
+i = 0
+while (mylist[i] < 0):
+  i = i + 1
+
+print("first non-negative number:", mylist[i])
+
+myfunc = lambda x : 3*x**2 - 2*x + 3 #example of an unnamed quadratic function
+print(myfunc(2))
+
+import math
+
+#The following function will discard missing values from a list
+
+def discard(inlist, sortFlag=False):  #default value for sortFlag is False
+  outlist = []
+  for item in inlist:
+    if not math.isnan(item):
+      outlist.append(item)
+
+  if sortFlag:
+    outlist.sort()
+  return outlist
+
+mylist = [12, math.nan, 23, -11, 45, math.nan, 71]
+print(discard(mylist,True))
